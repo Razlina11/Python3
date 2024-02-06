@@ -1,0 +1,7 @@
+If you type a function definition in interactive mode, the interpreter prints dots (...)
+to let you know that the definition isn’t complete:
+>>> def print_lyrics():
+... print("I'm a lumberjack, and I'm okay.")
+... print("I sleep all night and I work all day.")
+...
+To end the function, you have to enter an empty line.

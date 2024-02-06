@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int isConsonant(char c) {
+    c = tolower(c);  // Convert to lowercase for simplicity
+    if ((c >= 'a' && c <= 'z') && c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u')
+        return 1;  // Consonant
+    else
+        return 0;  // Not a consonant
+}
+
+void printFirstXConsonantsInString(const char* str, int x) {
+    int count = 0;
+    int i = 0;
+    
+    printf("The first %d consonants in the string '%s' are: ", x, str);
+    
+    while (str[i] != '\0' && count < x) {
+        if (isConsonant(str[i])) {
+            printf("%c ", str[i]);
+            count++;
+        }
+        i++;
+    }
+    
+    printf("\n");
+}
+
+int main() {
+    char str[] = "Hello, world!";
+    int x = 5;  // Number of consonants to print
+    
+    printFirstXConsonantsInString(str, x);
+    
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int i;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    printf("Consonants in the string: ");
+    for (i = 0; str[i] != '\0'; i++) {
+        // Check if the character is an alphabet
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
+            // Check if the character is not a vowel
+            if (str[i] != 'a' && str[i] != 'e' && str[i] != 'i' && str[i] != 'o' && str[i] != 'u' &&
+                str[i] != 'A' && str[i] != 'E' && str[i] != 'I' && str[i] != 'O' && str[i] != 'U') {
+                printf("%c ", str[i]);
+            }
+        }
+    }
+
+    return 0;
+}
